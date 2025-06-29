@@ -16,7 +16,7 @@ public class bullet : MonoBehaviour
         if (collision.CompareTag("enemy"))
         {
             enemy Enemy = collision.GetComponent<enemy>();
-            Enemy.givedamage(0.5f);
+            Enemy.givedamage(1f);
         }
     }
 }

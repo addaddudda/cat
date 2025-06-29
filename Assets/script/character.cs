@@ -10,6 +10,7 @@ public class character : MonoBehaviour
     public GameObject bulletpre;
     public Camera cam;
     public LayerMask enemyLayerMask;
+    public float health = 100f;
 
     float h;
     bool jumped;
@@ -27,7 +28,16 @@ public class character : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
     }
 
-
+    void makeanimfalse(string animation)
+    {
+        foreach (var param in anim.parameters)
+        {
+            if (param.type == AnimatorControllerParameterType.Bool && param.name != animation)
+            {
+                anim.SetBool(param.name, false);
+            }
+        }
+    }
     //점프
     void jump()
     {
@@ -51,13 +61,7 @@ public class character : MonoBehaviour
     //대쉬
     IEnumerator dash()
     {
-        foreach(var param in anim.parameters)
-        {
-            if(param.type == AnimatorControllerParameterType.Bool && param.name != "isdash")
-            {
-                anim.SetBool(param.name, false);
-            }
-        }
+        makeanimfalse("isdash");
         anim.SetBool("isdash", true);
         float locate = 0;
 
@@ -111,18 +115,24 @@ public class character : MonoBehaviour
         
         
     }
+    //식빵
     IEnumerator mkbread()
     {
         Collider2D[] mkbreadoverlap = Physics2D.OverlapCircleAll(transform.position, 3f, enemyLayerMask);
-        Debug.Log(mkbreadoverlap);
-        foreach (Collider2D hits in mkbreadoverlap) { 
-            enemy enemysc = hits.GetComponent<enemy>();
-            if (enemysc != null) {
-                enemysc.givedamage(0.3f);
-                Debug.Log(enemysc.health);
+        while (Input.GetKey(KeyCode.E))
+        {
+           foreach (Collider2D hits in mkbreadoverlap) {
+                enemy enemysc = hits.GetComponent<enemy>();
+                Debug.Log(hits);
+                if (enemysc != null)
+                {
+                    enemysc.givedamage(0.3f);
+                    Debug.Log(enemysc.health);
+                }
             }
+            yield return new WaitForSeconds(0.8f);
         }
-        yield return new WaitForSeconds(0.3f);
+        ismkbread = false;
     }
     private void OnDrawGizmos()
     {
@@ -132,13 +142,15 @@ public class character : MonoBehaviour
             Gizmos.DrawWireSphere(transform.position, 3f);
         }
     }
-
-
     void FixedUpdate()
     {
 
         if (ismkbread == false) {
             rigid.velocity = new Vector2(maxspeed * h, rigid.velocity.y);
+        }
+        if(ismkbread == true)
+        {
+            rigid.velocity = new Vector2(0, 0);
         }
         //점프
         if(jumped == true)
@@ -156,7 +168,14 @@ public class character : MonoBehaviour
         }
         
     }
-
+    public void givedamage(float damage)
+    {
+        health--;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     //update
     void Update()
     {
@@ -179,9 +198,9 @@ public class character : MonoBehaviour
         {
             spriterenderer.flipX = h > 0;
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && ismkbread == false)
         {
-            mkbread();
+            StartCoroutine(mkbread());
             ismkbread = true;
         }
         if (Input.GetKeyUp(KeyCode.E))
@@ -197,6 +216,9 @@ public class character : MonoBehaviour
             if (candash == true) {
                 dashed = true;
             }
+        }
+        if (Input.GetKey(KeyCode.U)) {
+            Debug.Log(health);
         }
     }
 }
