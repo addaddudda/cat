@@ -11,12 +11,16 @@ public class character : MonoBehaviour
     public Camera cam;
     public LayerMask enemyLayerMask;
     public float health = 100f;
+    public Sprite catbread;
+    public Sprite catorigin;
+    public bool parry = false;
 
     float h;
     bool jumped;
     bool dashed;
     bool candash = true;
     bool ismkbread = false;
+    
 
     Rigidbody2D rigid;
     Animator anim;
@@ -38,10 +42,10 @@ public class character : MonoBehaviour
             }
         }
     }
-    //¡°«¡
+    //Ï†êÌîÑ
     void jump()
     {
-       
+
 
         if (jumped == true && rigid.velocity.y == 0)
         {
@@ -58,7 +62,7 @@ public class character : MonoBehaviour
         }
     }
 
-    //¥ÎΩ¨
+    //Îç∞Ïâ¨
     IEnumerator dash()
     {
         makeanimfalse("isdash");
@@ -70,20 +74,22 @@ public class character : MonoBehaviour
         {
             locate = 1;
 
-        }else if(rigid_buho < 0)
+        }
+        else if (rigid_buho < 0)
         {
             locate = -1;
         }
         rigid.velocity = new Vector2(rigid.velocity.x, -2f);
-        
 
-        for(int i = 0; i < 5; i++)
+
+        for (int i = 0; i < 5; i++)
         {
             if (locate == 1)
             {
                 rigid.MovePosition(rigid.position + Vector2.right);
                 yield return new WaitForSeconds(0.03f);
-            }else if(locate == -1)
+            }
+            else if (locate == -1)
             {
                 rigid.MovePosition(rigid.position + Vector2.left);
                 yield return new WaitForSeconds(0.03f);
@@ -94,16 +100,16 @@ public class character : MonoBehaviour
 
         candash = false;
         anim.SetBool("isdash", false);
-        
-        
+
+
     }
-    //¥ÎΩ¨ ±‚¥Ÿ∏≤
+    //Îç∞Ïâ¨ Í∏∞Îã§Î¶º
     IEnumerator candash_fn()
     {
         yield return new WaitForSeconds(1.5f);
         candash = true;
     }
-    //√— πﬂªÁ
+    //Ï¥ùÏïå Î∞úÏÇ¨
     void fire()
     {
         Vector3 mouselocate = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -111,72 +117,88 @@ public class character : MonoBehaviour
         Vector2 dir = (mouselocate - transform.position).normalized;
         GameObject bullet = Instantiate(bulletpre, transform.position, Quaternion.identity);
         Rigidbody2D rigidbullet = bullet.GetComponent<Rigidbody2D>();
-        rigidbullet.AddForce(dir * 30f, ForceMode2D.Impulse);
-        
-        
+        rigidbullet.AddForce(dir * 70f, ForceMode2D.Impulse);
+
+
     }
-    //Ωƒªß
+    //ÏãùÎπµ 
     IEnumerator mkbread()
     {
-        Collider2D[] mkbreadoverlap = Physics2D.OverlapCircleAll(transform.position, 3f, enemyLayerMask);
+        makeanimfalse("isbread");
+        anim.SetBool("isbread", true);
+        Collider2D[] mkbreadoverlap = Physics2D.OverlapCircleAll(transform.position, 2f, enemyLayerMask);
+        spriterenderer.sprite = catbread;
+
         while (Input.GetKey(KeyCode.E))
         {
-           foreach (Collider2D hits in mkbreadoverlap) {
+            foreach (Collider2D hits in mkbreadoverlap)
+            {
                 enemy enemysc = hits.GetComponent<enemy>();
-                Debug.Log(hits);
                 if (enemysc != null)
                 {
                     enemysc.givedamage(0.3f);
-                    Debug.Log(enemysc.health);
                 }
             }
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(0.3f);
         }
         ismkbread = false;
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        if(ismkbread == true)
+        if (ismkbread == true)
         {
-            Gizmos.DrawWireSphere(transform.position, 3f);
+            Gizmos.DrawWireSphere(transform.position, 2f);
         }
     }
+    IEnumerator Parrywindow()
+    {
+        parry = true;
+        yield return new WaitForSeconds(0.5f);
+        parry = false;
+    }
+
+
     void FixedUpdate()
     {
 
-        if (ismkbread == false) {
+        if (ismkbread == false)
+        {
             rigid.velocity = new Vector2(maxspeed * h, rigid.velocity.y);
         }
-        if(ismkbread == true)
+        if (ismkbread == true)
         {
             rigid.velocity = new Vector2(0, 0);
         }
-        //¡°«¡
-        if(jumped == true)
+        if (jumped == true)
         {
             jump();
             jumped = false;
         }
 
-        //¥ÎΩ¨
-        if(dashed == true && candash == true)
+        if (dashed == true && candash == true)
         {
             StartCoroutine(dash());
             StartCoroutine(candash_fn());
             dashed = false;
         }
-        
+
     }
     public void givedamage(float damage)
     {
-        health--;
-        if(health <= 0)
+        if (parry == false)
+        {
+            health--;
+        }
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
     }
-    //update
+
+
+
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -184,16 +206,14 @@ public class character : MonoBehaviour
             fire();
         }
 
-        if(anim.GetBool("isdash") == false)
+        if (anim.GetBool("isdash") == false)
         {
             anim.SetBool("iswalk", Mathf.Abs(rigid.velocity.x) > 0.1f && rigid.velocity.y == 0);
             anim.SetBool("isjump", rigid.velocity.y != 0);
-            
+
         }
 
         h = Input.GetAxisRaw("Horizontal");
-
-        
         if (h != 0)
         {
             spriterenderer.flipX = h > 0;
@@ -205,6 +225,8 @@ public class character : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.E))
         {
+            makeanimfalse("isbread");
+            anim.SetBool("isbread", false);
             ismkbread = false;
         }
         if (Input.GetKeyDown(KeyCode.W))
@@ -212,12 +234,17 @@ public class character : MonoBehaviour
             jumped = true;
 
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) {
-            if (candash == true) {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (candash == true)
+            {
                 dashed = true;
             }
         }
-        if (Input.GetKey(KeyCode.U)) {
+        if (Input.GetMouseButtonDown(1))
+        {
+            StartCoroutine(Parrywindow());
+            Debug.Log(parry);
             Debug.Log(health);
         }
     }

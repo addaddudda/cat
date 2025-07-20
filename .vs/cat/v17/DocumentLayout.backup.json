@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|c:\\users\\jook8\\desktop\\coding\\unity\\unity project\\cat\\assets\\script\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\assets\\script\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\assets\\script\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|c:\\users\\jook8\\desktop\\coding\\unity\\unity project\\cat\\assets\\script\\bulletenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\assets\\script\\bulletenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\bulletenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\assets\\script\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|c:\\users\\jook8\\desktop\\coding\\unity\\unity project\\cat\\assets\\script\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\assets\\script\\enemybullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AD2B72B-8816-35A2-BF7D-EC7128DDA754}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\enemybullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +30,65 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "enemybullet.cs",
+              "DocumentMoniker": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\enemybullet.cs",
+              "RelativeDocumentMoniker": "Assets\\script\\enemybullet.cs",
+              "ToolTip": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\enemybullet.cs",
+              "RelativeToolTip": "Assets\\script\\enemybullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T10:11:54.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "bulletenemy.cs",
               "DocumentMoniker": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\bulletenemy.cs",
               "RelativeDocumentMoniker": "Assets\\script\\bulletenemy.cs",
               "ToolTip": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\bulletenemy.cs",
               "RelativeToolTip": "Assets\\script\\bulletenemy.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T09:24:15.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-29T09:24:15.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "enemy.cs",
               "DocumentMoniker": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\enemy.cs",
               "RelativeDocumentMoniker": "Assets\\script\\enemy.cs",
               "ToolTip": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\enemy.cs",
               "RelativeToolTip": "Assets\\script\\enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T13:43:25.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-21T13:43:25.619Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "bullet.cs",
               "DocumentMoniker": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\bullet.cs",
               "RelativeDocumentMoniker": "Assets\\script\\bullet.cs",
               "ToolTip": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\bullet.cs",
               "RelativeToolTip": "Assets\\script\\bullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T15:55:31.577Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-13T15:55:31.577Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "character.cs",
               "DocumentMoniker": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\character.cs",
               "RelativeDocumentMoniker": "Assets\\script\\character.cs",
               "ToolTip": "C:\\Users\\jook8\\Desktop\\coding\\unity\\unity project\\cat\\Assets\\script\\character.cs",
               "RelativeToolTip": "Assets\\script\\character.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAswH8AAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAALgAAAAAAAAAAAAkwMQAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-07T15:55:52.827Z",
               "EditorCaption": ""

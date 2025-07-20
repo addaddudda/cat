@@ -10,7 +10,6 @@ public class bulletenemy : MonoBehaviour
     void random_enemy()
     {
         random = Random.Range(1, 4);
-        Debug.Log(random);
     }
     private void Start()
     {

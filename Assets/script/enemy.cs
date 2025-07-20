@@ -7,7 +7,11 @@ public class enemy : MonoBehaviour
     public float health = 10f;
     public void givedamage(float damage)
     {
-        health -= damage;
+        for(int i = 0; i < 3; i++)
+        {
+            health -= damage;
+        }
+        
         if (health <= 0)
         {
             Destroy(gameObject);

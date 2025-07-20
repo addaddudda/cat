@@ -3271,7 +3271,7 @@ GameObject:
   - component: {fileID: 1685917099}
   m_Layer: 0
   m_Name: enemybullet
-  m_TagString: Untagged
+  m_TagString: enemybullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3589,6 +3589,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   health: 100
+  catbread: {fileID: 21300000, guid: 43e5786d0400997439da6795dbe61a69, type: 3}
+  catorigin: {fileID: 686233376, guid: ecb07389ebe2a7441ab61e0e60fda242, type: 3}
+  parry: 0
 --- !u!50 &1846348869
 Rigidbody2D:
   serializedVersion: 4

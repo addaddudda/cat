@@ -10,7 +10,15 @@ public class enemybullet : MonoBehaviour
         if (collision.CompareTag("character"))
         {
             character charactersc = character.GetComponent<character>();
-            charactersc.givedamage(0.5f);
+            if(charactersc.parry == false)
+            {
+                charactersc.givedamage(0.5f);
+            }
+            else if(charactersc.parry == true) 
+            {
+                charactersc.health += 3;
+            }
+            
         }
         if (collision.CompareTag("border"))
         {
