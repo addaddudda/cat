@@ -22,7 +22,7 @@ public class bulletenemy : MonoBehaviour
             GameObject enemybullet = Instantiate(enemybulletpre, transform.position, Quaternion.identity);
             Vector2 dir = (character.transform.position - transform.position).normalized;
             Rigidbody2D bulletrb = enemybullet.GetComponent<Rigidbody2D>();
-            bulletrb.AddForce(dir * 30f, ForceMode2D.Impulse);
+            bulletrb.AddForce(dir * 40f, ForceMode2D.Impulse);
             random = 0;
         }
     }

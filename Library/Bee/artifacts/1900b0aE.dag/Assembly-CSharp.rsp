@@ -372,6 +372,7 @@
 "Assets/script/character.cs"
 "Assets/script/enemy.cs"
 "Assets/script/enemybullet.cs"
+"Assets/script/nonbulletenemy.cs"
 -langversion:9.0
 /deterministic
 /optimize+

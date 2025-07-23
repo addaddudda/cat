@@ -20,7 +20,7 @@ public class character : MonoBehaviour
     bool dashed;
     bool candash = true;
     bool ismkbread = false;
-    
+    bool canfire = true;
 
     Rigidbody2D rigid;
     Animator anim;
@@ -32,7 +32,7 @@ public class character : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
     }
 
-    void makeanimfalse(string animation)
+    public void makeanimfalse(string animation)
     {
         foreach (var param in anim.parameters)
         {
@@ -110,16 +110,21 @@ public class character : MonoBehaviour
         candash = true;
     }
     //총알 발사
-    void fire()
+    public void fire()
     {
         Vector3 mouselocate = cam.ScreenToWorldPoint(Input.mousePosition);
         mouselocate.z = 0f;
         Vector2 dir = (mouselocate - transform.position).normalized;
         GameObject bullet = Instantiate(bulletpre, transform.position, Quaternion.identity);
         Rigidbody2D rigidbullet = bullet.GetComponent<Rigidbody2D>();
-        rigidbullet.AddForce(dir * 70f, ForceMode2D.Impulse);
-
-
+        rigidbullet.AddForce(dir * 40f, ForceMode2D.Impulse);
+        StartCoroutine(firewait());
+    }
+    IEnumerator firewait()
+    {
+        canfire = false;
+        yield return new WaitForSeconds(0.3f);
+        canfire = true;
     }
     //식빵 
     IEnumerator mkbread()
@@ -188,7 +193,7 @@ public class character : MonoBehaviour
     {
         if (parry == false)
         {
-            health--;
+            health-=damage;
         }
         if (health <= 0)
         {
@@ -201,7 +206,7 @@ public class character : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canfire == true)
         {
             fire();
         }
@@ -244,8 +249,6 @@ public class character : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(Parrywindow());
-            Debug.Log(parry);
-            Debug.Log(health);
         }
     }
 }

@@ -63,6 +63,7 @@
     <Compile Include="Assets\script\character.cs" />
     <Compile Include="Assets\script\bulletenemy.cs" />
     <Compile Include="Assets\script\enemybullet.cs" />
+    <Compile Include="Assets\script\nonbulletenemy.cs" />
     <Compile Include="Assets\script\bullet.cs" />
     <Compile Include="Assets\script\enemy.cs" />
   </ItemGroup>
