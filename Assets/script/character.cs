@@ -131,11 +131,12 @@ public class character : MonoBehaviour
     {
         makeanimfalse("isbread");
         anim.SetBool("isbread", true);
-        Collider2D[] mkbreadoverlap = Physics2D.OverlapCircleAll(transform.position, 2f, enemyLayerMask);
+        
         spriterenderer.sprite = catbread;
 
         while (Input.GetKey(KeyCode.E))
         {
+            Collider2D[] mkbreadoverlap = Physics2D.OverlapCircleAll(transform.position, 2f, enemyLayerMask);
             foreach (Collider2D hits in mkbreadoverlap)
             {
                 enemy enemysc = hits.GetComponent<enemy>();
@@ -144,7 +145,7 @@ public class character : MonoBehaviour
                     enemysc.givedamage(0.3f);
                 }
             }
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
         }
         ismkbread = false;
     }
